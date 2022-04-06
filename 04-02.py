@@ -41,4 +41,12 @@ for t in range(n+1):
     Time += 1
 print(mycount)
 
-
+##답안 
+h= int(input())
+count_= 0
+for i in range(h+1):
+    for j in range(60):
+        for k in range(60):
+            if '3' in str(i)+str(j)+str(k): #매 시각 안에 '3'이 포함되어 있다면 카운트 증가.
+                count_ +=1
+print(count_)
