@@ -24,6 +24,9 @@ A는 북쪽으로부터 떨어진 칸의 개수 , B는 서쪽으로부터 떨어
 3
 '''
 #n 세로크기 m 가로크기
+from re import A
+
+
 n,m = map(int,input().split())
 #입력받은 크기의 2차원 배열 생성. 기억하자. 세로 - 가로.  
 #col: 열 , row : 행 여기서는 n 이 행이 되어야 함.(n이 세로 길이임.)
@@ -32,6 +35,57 @@ n,m = map(int,input().split())
 # print(array)
 array2 = []
 for i in range(n):
-    array2.append(list(map(int,input().split())))
+    array2.append(list(map(int,input().split()))) # 맵 정보 입력받기.
 print(array2)
+print(array2[2][1]) #앞에가 세로 맞음
+# array2에는 현재 map의 정보가 들어가 있음.
+
+y, x, direction = map(int,input().split())
+
+#왼쪽으로 도는 함수 만들기
+def turn_left(direction):
+    if direction == 0:
+        direction = 1
+    elif direction == 1:
+        direction = 2
+    elif direction == 2:
+        direction = 3
+    elif direction == 3:
+        direction = 1
+    return direction
+
+#갈 수 있을지 없을지 판단하고 갈 수 있으면 가는 함수 만들기
+def where_to_go( location , direction):
+    #현재 위치의 좌표를 뽑아내야 함.
+    location
+    turn_count = 0 #4 번 돌면 종료.
+    count = 0
+    north = 0
+    south = 2
+    east = 1
+    west = 3
+    turn_left()
+    turn_count += 1 # 나중에 함수 while문 돌린 후 turn_count가 5이면 정지.
+    if direction == north:
+        if array2[y-1][x] == 0: #방향이 현재 위치 기준으로 변해야 하는거 아닌가?
+            present_location =[y-1,x]
+            count +=1
+        elif array2[y-1][x] == 1:
+            pass
+    if direction == south:
+        if array2[y+1][x] == 0:
+            present_location = [y+1,x]
+            count +=1
+        elif array2[y+1][x] == 1:
+            pass
+    if direction == east:
+        if array2[y][x+1] == 1:
+            present_location = [y,x+1]
+            count == 1
+        elif array2[y][x+1] == 0:
+            pass
+    if direction == west:
+        if array2[]
+
+
 
