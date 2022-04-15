@@ -23,4 +23,15 @@ A는 북쪽으로부터 떨어진 칸의 개수 , B는 서쪽으로부터 떨어
 출력예시
 3
 '''
+#n 세로크기 m 가로크기
+n,m = map(int,input().split())
+#입력받은 크기의 2차원 배열 생성. 기억하자. 세로 - 가로.  
+#col: 열 , row : 행 여기서는 n 이 행이 되어야 함.(n이 세로 길이임.)
+#4행 2열을 만들려면 4 2 순서대로 치면 됨.
+# array = [[0 for col in range(m)] for row in range(n)]  # 세로 길이 = 행의 갯수 , 가로 길이 = 열의 갯수
+# print(array)
+array2 = []
+for i in range(n):
+    array2.append(list(map(int,input().split())))
+print(array2)
 
