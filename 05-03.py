@@ -67,15 +67,17 @@ def dfs(x,y):
         dfs(x-1,y)
         dfs(x+1,y)
         dfs(x,y+1)
-        dfs(x,y-1)
-        return True
+        dfs(x,y-1) #주변을 다 1로 바꾸고 나서 
+        return True #true값을 반환 한번 함.
     return False
 
 #모든 위치에 대해 음료수 채우기
 result = 0
 for i in range(n):
     for j in range(m):
+        print(i,j,dfs(i,j))
         if dfs(i,j) == True: # 아이스크림 하나 전부를 탐색할 때 이미  True값!
             result += 1
 
 print(result)
+
