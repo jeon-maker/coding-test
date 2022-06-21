@@ -26,20 +26,22 @@ for i in range(n):
 #
 #이동할 때 마다 가까운 노드의 값을 +1 시키며 이동하면 목표 노드에 도달했을 때 노드의 값이 이동 횟수가 된다.
 i = 0
-def bfs(x,y):
+def bfs(x,y,i):
     if (x<= -1 or y<= -1 or n <= x or m <= y): 
         return False
     if(graph[x][y]==1):
-        global i
         i += 1
-        graph[x][y] = (i)
-        bfs(x-1,y)
-        bfs(x+1,y)
-        bfs(x,y-1)
-        bfs(x,y+1)
+        graph[x][y]=i
+        print(graph)
+        bfs(x-1,y,i)
+        bfs(x+1,y,i)
+        bfs(x,y-1,i)
+        bfs(x,y+1,i)
+        
         return True
+    return i
 # for i in range(n):
 #     for j in range(m):
 #         bfs(i,j)
-bfs(0,0)
+bfs(0,0,0)
 print(graph[n-1][m-1])
