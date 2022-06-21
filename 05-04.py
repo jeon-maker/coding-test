@@ -23,27 +23,23 @@ for i in range(n):
     graph.append(list(map(int,input()))) #그래프 완성
 
 #0,0 부터 n,m까지 1인 칸을 찾아 탐색해나가야 함. 
-
-
-def bfs(x,y,i):
-    if(x<=-1 | x>=m | y<=-1 | y>=n ):
+#
+#이동할 때 마다 가까운 노드의 값을 +1 시키며 이동하면 목표 노드에 도달했을 때 노드의 값이 이동 횟수가 된다.
+i = 0
+def bfs(x,y):
+    if (x<= -1 or y<= -1 or n <= x or m <= y): 
         return False
     if(graph[x][y]==1):
+        global i
         i += 1
-        graph[x][y] = i #방문 처리 후
-        # bfs(x,y-1) 
-        # bfs(x,y+1) #아래
-        # bfs(x-1,y)
-        # bfs(x+1,y) #오른쪽
-        bfs(x,y+1,i)
-        bfs(x+1,y,i)
-        bfs(x,y-1,i)
-        bfs(x-1,y,i)
-        #인접 노드의 값들을 이동 할 때 마다 1 씩 증가시킴
+        graph[x][y] = (i)
+        bfs(x-1,y)
+        bfs(x+1,y)
+        bfs(x,y-1)
+        bfs(x,y+1)
         return True
-
-    if(x==n & y==m):
-        print("끝!")
-    return False
-
-bfs(0,0,0)
+# for i in range(n):
+#     for j in range(m):
+#         bfs(i,j)
+bfs(0,0)
+print(graph[n-1][m-1])
