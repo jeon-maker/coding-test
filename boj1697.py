@@ -44,18 +44,18 @@ def bfs(visited,x):
         if num == k:
             print(cnt)
             break
-        if num > 100001:
+        if num > 100000:
             continue
         num1 = num - 1
         num2 = num + 1
         num3 = num * 2
-        if visited[num1] == False:
+        if 0<=num1 <=100000 and visited[num1] == False:
             q.append((num1,cnt+1))
             visited[num1] = True
-        if visited[num2] == False:
+        if 0<=num2 <=100000 and visited[num2] == False:
             q.append((num2,cnt+1))
             visited[num2] = True
-        if visited[num3] == False:
+        if 0<=num3 <=100000 and visited[num3] == False:
             q.append((num3,cnt+1))
             visited[num3] = True
 
