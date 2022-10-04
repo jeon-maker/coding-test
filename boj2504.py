@@ -38,6 +38,8 @@ def isitcorrect(braket):
                 else:
                     # print("wrong braket")
                     return False
+        else :
+            return False
     if len(check_list) == 0:
         # print("success")
         return True
@@ -51,7 +53,7 @@ def isitcorrect(braket):
 cal = []
 def calculate_braket(braket):
     val = 0
-
+    cal_val = 0
     for i in range(len(braket)):
         if braket[i] == '[':
             if len(cal) == 0:
@@ -63,6 +65,8 @@ def calculate_braket(braket):
                 elif cal[-1] == '2':
                     cal[-1] = '2*'
                     cal.append('3')
+                else :
+                    cal.append('3')
         elif braket[i] == '(':
             if len(cal) == 0:
                 cal.append('2')
@@ -73,16 +77,23 @@ def calculate_braket(braket):
                 elif cal[-1] == '2':
                     cal[-1] = '2*'
                     cal.append('2')
+                else:
+                    cal.append('2')
         elif braket[i] == ']' or braket[i] == ')':
-            k = cal.pop()
-            if k =='3*':
-                val *= 3
-            elif k =='3':
-                val += 3
-            elif k =='2*':
-                val *=2
-            elif k == '2':
-                val += 2
+            if len(cal) != 0:
+                k = cal.pop() #cal에 있는것들 먼저 계산하게 해야함!
+                if k =='3*':
+                    cal_val *= 3
+                elif k =='3':
+                    cal_val += 3
+                elif k =='2*':
+                    cal_val *=2
+                elif k == '2':
+                    cal_val += 2
+                if len(cal) == 0:
+                    val += cal_val
+                    cal_val = 0
+        print(cal_val)
     print(val)
             
 if(isitcorrect(braket)):
